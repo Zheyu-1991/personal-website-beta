@@ -1,93 +1,114 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f4f0e8" />
-    <title>Zheyu x Codex</title>
+    <meta name="description" content="Zheyu Deng 的个人空间。关于我、我的经历，以及生活里的片段。" />
+    <title>Zheyu Deng · 主页</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        color-scheme: light;
-        --paper: oklch(95.7% 0.017 85);
-        --ink: oklch(20.5% 0.025 40);
-        --accent: oklch(59% 0.13 36);
-      }
-
-      * { box-sizing: border-box; }
-
-      html, body { min-height: 100%; }
-
-      body {
-        margin: 0;
-        min-height: 100svh;
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-        background:
-          radial-gradient(circle at 17% 18%, oklch(91% 0.042 85 / 0.72), transparent 26rem),
-          radial-gradient(circle at 83% 81%, oklch(90% 0.05 47 / 0.52), transparent 32rem),
-          var(--paper);
-        color: var(--ink);
-      }
-
-      main {
-        position: relative;
-        width: min(90vw, 82rem);
-        padding: clamp(1.5rem, 5vw, 5rem) 0;
-      }
-
-      main::before {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        width: clamp(4.5rem, 10vw, 9rem);
-        aspect-ratio: 1;
-        right: clamp(0rem, 4vw, 4rem);
-        top: clamp(-0.5rem, 2vw, 2rem);
-        border-radius: 50%;
-        background: var(--accent);
-        transform: rotate(-15deg);
-        animation: drift 5s cubic-bezier(.22, 1, .36, 1) infinite alternate;
-      }
-
-      h1 {
-        margin: 0;
-        max-width: 11ch;
-        font-family: "DM Serif Display", Georgia, serif;
-        font-size: clamp(4.25rem, 15vw, 13rem);
-        font-weight: 400;
-        line-height: 0.79;
-        letter-spacing: -0.075em;
-        text-wrap: balance;
-        animation: arrive 950ms cubic-bezier(.22, 1, .36, 1) both;
-      }
-
-      .accent { color: var(--accent); font-style: italic; }
-
-      @keyframes arrive {
-        from { opacity: 0; transform: translateY(0.14em); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      @keyframes drift {
-        from { transform: rotate(-15deg) translate(-0.3rem, 0.2rem); }
-        to { transform: rotate(-7deg) translate(0.3rem, -0.25rem); }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script>document.documentElement.classList.add('js', 'intro-active');</script>
+    <script src="./app.js" defer></script>
+    <noscript><style>.page[hidden]{display:block;margin-top:5rem}.intro{display:none}</style></noscript>
   </head>
   <body>
-    <main>
-      <h1>Zheyu <span class="accent">x</span> Codex</h1>
-    </main>
+    <a class="skip-link" href="#main-content">跳到正文</a>
+
+    <div class="intro" id="intro">
+      <div class="intro-mark" aria-label="Zheyu x Codex">
+        <div class="intro-circle" aria-hidden="true"></div>
+        <p>Zheyu <span>x</span> Codex</p>
+      </div>
+      <button class="intro-skip" id="skip-intro" type="button">进入我的空间 <span aria-hidden="true">↗</span></button>
+    </div>
+
+    <div class="site-shell" id="site-shell">
+      <aside class="sidebar" aria-label="侧边栏">
+        <a class="wordmark" href="#home" aria-label="Zheyu Deng，返回主页">zheyu<span>.</span></a>
+        <div class="sidebar-middle">
+          <p class="sidebar-caption">A PERSONAL SPACE</p>
+          <nav class="navigation" aria-label="主导航">
+            <a href="#home" class="nav-link is-active" aria-current="page"><span class="nav-number">01</span><span>主页<small>Home</small></span><span class="nav-indicator" aria-hidden="true">↗</span></a>
+            <a href="#about" class="nav-link"><span class="nav-number">02</span><span>个人背景<small>About me</small></span><span class="nav-indicator" aria-hidden="true">↗</span></a>
+            <a href="#resume" class="nav-link"><span class="nav-number">03</span><span>简历<small>Résumé</small></span><span class="nav-indicator" aria-hidden="true">↗</span></a>
+            <a href="#life" class="nav-link"><span class="nav-number">04</span><span>生活<small>Life & moments</small></span><span class="nav-indicator" aria-hidden="true">↗</span></a>
+          </nav>
+        </div>
+        <div class="sidebar-bottom">
+          <span class="small-sun" aria-hidden="true">✳</span>
+          <p>A work in progress.<br /><span>慢慢来，也是一种前进。</span></p>
+          <button class="replay-button" id="replay-intro" type="button">zheyu <i>x</i> codex <span aria-hidden="true">↺</span><span class="sr-only">重播开场</span></button>
+        </div>
+      </aside>
+
+      <div class="main-area">
+        <header class="topbar"><span id="breadcrumb">我的空间 / 主页</span><span class="topbar-note"><span class="status-dot" aria-hidden="true"></span> Nice to have you here.</span></header>
+        <main id="main-content" tabindex="-1">
+
+          <section class="page" id="home" aria-labelledby="home-title">
+            <div class="home-hero">
+              <div class="hero-copy">
+                <p class="eyebrow"><span></span> HELLO, WORLD</p>
+                <h1 id="home-title"><span class="chinese-greeting">你好，我是</span><br />Zheyu Deng<span class="title-period">.</span></h1>
+                <p class="hero-description">欢迎来到我的一小片互联网。<br />这里有我的经历，也有生活的切片。</p>
+                <a class="text-link primary-link" href="#about">从这里认识我 <span aria-hidden="true">↗</span></a>
+              </div>
+              <figure class="hero-art" aria-label="陶土色太阳和山峦组成的抽象风景插画">
+                <div class="art-label"><span>THE ART OF EXPLORING</span><span>001 — ∞</span></div>
+                <svg viewBox="0 0 440 430" fill="none" aria-hidden="true">
+                  <defs><clipPath id="landscape-window"><path d="M52 400V192a168 168 0 0 1 336 0v208Z" /></clipPath><pattern id="art-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" stroke="#d9d1c2" stroke-width=".6" /></pattern></defs>
+                  <path d="M52 400V192a168 168 0 0 1 336 0v208Z" fill="#e9e2d5" />
+                  <g clip-path="url(#landscape-window)">
+                    <path d="M0 0h440v430H0Z" fill="url(#art-grid)" />
+                    <circle cx="274" cy="152" r="55" fill="#b45e3e" />
+                    <path d="m-10 366 163-155 132 145 84-80 100 114v70H-10Z" fill="#b9b7a2" />
+                    <path d="m-16 401 122-92 98 79 117-146 134 179v50H-16Z" fill="#777d69" />
+                    <path d="M-20 438c102-70 192-98 308-67 68 18 121 22 166-3v100H-20Z" fill="#d0bc9f" />
+                    <path d="M281 362c-7 16-51 20-58 37-6 13 18 24 9 42" stroke="#f4f0e8" stroke-width="5" />
+                  </g>
+                  <path d="M52 400V192a168 168 0 0 1 336 0v208Z" stroke="#c2b9a8" stroke-width="1" />
+                  <path d="M27 400h386" stroke="#9a8d79" />
+                  <path d="M36 96h28M50 82v28" stroke="#b45e3e" />
+                  <circle cx="395" cy="252" r="4" fill="#b45e3e" />
+                  <path d="M366 46c33 12 46 35 40 60" stroke="#a99b85" stroke-dasharray="3 5" />
+                </svg>
+                <figcaption><span>保持好奇，继续探索。</span><i>Stay curious.</i></figcaption>
+              </figure>
+            </div>
+            <div class="explore-section">
+              <div class="section-label"><span>随便看看</span><span>EXPLORE MY SPACE</span></div>
+              <div class="explore-links">
+                <a href="#about"><span class="explore-number">01 /</span><span class="explore-name">关于我<small>背景、故事与来时的路</small></span><span class="explore-arrow" aria-hidden="true">↗</span></a>
+                <a href="#resume"><span class="explore-number">02 /</span><span class="explore-name">我的经历<small>学习与成长的轨迹</small></span><span class="explore-arrow" aria-hidden="true">↗</span></a>
+                <a href="#life"><span class="explore-number">03 /</span><span class="explore-name">生活片段<small>把日常，认真收藏</small></span><span class="explore-arrow" aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" id="about" aria-labelledby="about-title" hidden>
+            <div class="page-heading"><p class="eyebrow"><span></span> A LITTLE ABOUT ME</p><h1 id="about-title">每一段经历，<br />都成为<span class="serif-accent">我。</span></h1><p class="page-description">你好，我是 Zheyu Deng。<br />这是我的个人空间，也是慢慢记录自己的地方。</p></div>
+            <div class="about-layout"><div class="large-initial" aria-hidden="true">Z<span>.</span></div><div class="profile-details"><h2>关于我的故事</h2><p>更多个人介绍正在整理中。<br />在这里，慢慢认识一个更完整的我。</p><dl><div><dt>教育背景</dt><dd>待补充</dd></div><div><dt>关注方向</dt><dd>待补充</dd></div><div><dt>目前所在地</dt><dd>待补充</dd></div></dl><a href="#resume" class="text-link">看看我的简历 <span aria-hidden="true">↗</span></a></div></div>
+          </section>
+
+          <section class="page" id="resume" aria-labelledby="resume-title" hidden>
+            <div class="page-heading"><p class="eyebrow"><span></span> THE JOURNEY SO FAR</p><h1 id="resume-title">学习，尝试，<br /><span class="serif-accent">继续向前。</span></h1><p class="page-description">把经历串成一条线，看见成长的轨迹。</p></div>
+            <div class="resume-note"><span class="note-symbol" aria-hidden="true">↗</span><div><h2>简历正在整理中</h2><p>详细经历和 PDF 简历将在这里更新。</p></div><span class="outline-tag">COMING SOON</span></div>
+            <div class="resume-sections"><div><span>01</span><h2>教育经历<small>Education</small></h2><p>待补充</p></div><div><span>02</span><h2>实践经历<small>Experience</small></h2><p>待补充</p></div><div><span>03</span><h2>项目与技能<small>Projects & skills</small></h2><p>待补充</p></div></div>
+          </section>
+
+          <section class="page" id="life" aria-labelledby="life-title" hidden>
+            <div class="page-heading"><p class="eyebrow"><span></span> LIFE, IN LITTLE MOMENTS</p><h1 id="life-title">日常里，<br />也有<span class="serif-accent">小小的宇宙。</span></h1><p class="page-description">留一点空间，给风景、灵感和普通的一天。</p></div>
+            <div class="life-canvas"><div class="life-sun" aria-hidden="true"></div><div class="life-orbit" aria-hidden="true"></div><div class="life-canvas-copy"><span class="eyebrow">A COLLECTION IN THE MAKING</span><h2>故事，慢慢发生。</h2><p>生活记录即将在这里展开。</p></div><i aria-hidden="true">To be continued.</i></div>
+            <a href="#home" class="text-link life-back">回到主页 <span aria-hidden="true">↗</span></a>
+          </section>
+
+        </main>
+        <footer class="footer"><span>© <span id="year">2026</span> Zheyu Deng</span><span>Made with curiosity <i>&</i> Codex <span class="footer-star" aria-hidden="true">✳</span></span></footer>
+      </div>
+    </div>
   </body>
 </html>
